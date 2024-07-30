@@ -1,0 +1,15 @@
+{
+    "manifest_version": 3,
+    "name": "Shadowroot Extractor",
+    "version": "2.0",
+    "description": "Extracts and displays elements within double quotes from a given JavaScript string.",
+    "permissions": ["activeTab", "scripting"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+      }
+    },
+    "icons": {
+    }
+  }
+  

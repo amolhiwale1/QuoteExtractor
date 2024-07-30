@@ -1,0 +1,89 @@
+body {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  
+}
+
+body:hover{
+  border-color: #00FF00;
+}
+
+.container {
+  padding: 20px;
+  width: 350px; 
+  margin: 0 auto;
+}
+
+textarea, button {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+textarea {
+  height: 100px;
+  background-color: #333333;
+  color: #ffffff;
+  border: 1px solid #444444;
+}
+
+button {
+  background-color: #444444;
+  color: #ffffff;
+  border: 1px solid #555555;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555555;
+}
+
+#output {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+#output pre {
+  background-color: #333333;
+  padding: 10px;
+  border: 1px solid #444444;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  transition: background-color 0.3s;
+}
+
+#output:hover pre {
+  background-color: #222222;
+}
+
+.copy-message {
+  display: none;
+  margin-top: 10px;
+  color: #00FF00; 
+  font-weight: bold;
+  text-align: center;
+}
+
+textarea:focus {
+  border-color: #00FFFF; 
+}
+
+textarea:hover{
+  border-color: #00FFFF;
+}
+
+button:hover {
+  border-color: #00FFFF;
+}
+
+button:active {
+  background-color: #555555;
+  border-color: #00FFFF;
+}
+
+.highlight {
+  font-weight: bold;
+  color: skyblue;
+}
+

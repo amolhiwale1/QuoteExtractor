@@ -1,0 +1,38 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin: 0;
+    background: #333; /* Dark theme background */
+}
+
+#popup-content {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    background: #444; /* Slightly lighter background for contrast */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    animation: glowing 2s infinite;
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 5px skyblue, 0 0 10px skyblue, 0 0 15px skyblue, 0 0 20px skyblue;
+    }
+    50% {
+        box-shadow: 0 0 10px deepskyblue, 0 0 20px deepskyblue, 0 0 30px deepskyblue, 0 0 40px deepskyblue;
+    }
+    100% {
+        box-shadow: 0 0 5px skyblue, 0 0 10px skyblue, 0 0 15px skyblue, 0 0 20px skyblue;
+    }
+}
+
+body.loaded #popup-content {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+}
