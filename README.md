@@ -1,0 +1,1 @@
+Shadowroot Extractor is a Chrome extension designed to extract shadow roots from JS paths and format them into a specified structure. It simplifies the process of working with shadow DOM elements in web development.
