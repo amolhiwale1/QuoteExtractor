@@ -22,9 +22,9 @@ function extractAndFormat(className) {
 
 function formatJSPath(jsPath, className) {
   const parts = jsPath.match(/querySelector\("([^"]+)"\)/g).map(part => part.match(/"([^"]+)"/)[1]);
-  const formattedParts = parts.slice(1).map(part => `    .shadowRootCreateByCss(WebComponent.class, "${part}")`);  // start from second element
-  formattedParts[formattedParts.length - 1] = `    .shadowRootCreateByCss(${className}, "${parts[parts.length - 1]}");`;
-  return `app().create().byCss(WebComponent.class, "${parts[0]}")\n${formattedParts.join('\n')}`;
+  const formattedParts = parts.slice(1).map(part => `    .createByCss(ShadowRoot.class, "${part}")`);  // start from second element
+  formattedParts[formattedParts.length - 1] = `    .createByCss(${className}, "${parts[parts.length - 1]}");`;
+  return `app().create().byCss(ShadowRoot.class, "${parts[0]}")\n${formattedParts.join('\n')}`;
 }
 
 function displayOutput(formattedOutput) {
@@ -50,19 +50,19 @@ function optimizeOutput() {
   let optimizedOutput = output;
 
 
-  const regex = /\.shadowRootCreateByCss\(WebComponent\.class, "main > sn-canvas-screen:nth-child\((\d)\)"\)/;
+  const regex = /\.createByCss\(ShadowRoot\.class, "main > sn-canvas-screen:nth-child\((\d)\)"\)/;
   const match = output.match(regex);
 
   if (match) {
     const number = match[1];
     optimizedOutput = output.split(match[0])[1];
-    optimizedOutput = `return snCanvasScreen${number}_shadowRoot()${optimizedOutput}`;
+    optimizedOutput = `return customUiMainMacroponent()${optimizedOutput}`;
   } else {
-    const regexDefault = /\.shadowRootCreateByCss\(WebComponent\.class, "main > sn-canvas-screen"\)/;
+    const regexDefault = /\.createByCss\(ShadowRoot\.class, "main > sn-canvas-screen"\)/;
     const matchDefault = output.match(regexDefault);
     if (matchDefault) {
       optimizedOutput = output.split(matchDefault[0])[1];
-      optimizedOutput = `return snCanvasScreen_shadowRoot()${optimizedOutput}`;
+      optimizedOutput = `return customUiMainMacroponent()${optimizedOutput}`;
     }
   }
 
